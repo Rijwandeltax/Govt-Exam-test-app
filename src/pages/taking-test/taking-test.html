@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+    <ion-slides  class="image-slider" style="height:auto!important">
+        <ion-slide *ngFor="let question of questions; let i=index">
+          <ion-item>
+              <h2 class="test-ques" item-start>Question {{i + 1}}. </h2>
+              <h2 style="color:#000000;margin-top:-5px" item-end>{{var_Min}}{{Minutes}}:{{var_sec}}{{Seconds}}</h2>
+          </ion-item>
+            <div></div>
+            <h6  class="test-ques" style="text-align:justify!important"> {{question.title}}</h6> 
+            <p>{{question.details}}</p> 
+
+         <ion-list *ngFor="let option of question.options; let i =index">
+                
+           <!--  <button ion-button block outline style="border-color:#000000; color:#000000" (click)="optionselected(i+1,option.option_id,option.is_correct)">
+               
+              <span style="margin-left:-150px;margin-right:70px" >{{i+1}} </span><span class="AnswerOptions">{{option.title}}</span>
+            </button>
+               <button class = "button button-block button-outline optionButtons" style="border-color:#55bbea;color:#55bbea" (click)="optionselected(key,option.option_id,option.is_correct)">
+                     <span class="SelectedOptions"> </span><span class="AnswerOptions">{{option.title}}</span>
+                </button>-->
+              
+                <div [ngSwitch]="check(i+1)">
+              	<div *ngSwitchCase="1">
+                  <button ion-button block outline style="border-color:#0fe633; color:#27d621" (click)="optionselected(i+1,option.option_id,option.is_correct)">
+                    <ion-item>
+                      <p item-start style="border: 1px solid #121211; border-radius: 60px; padding: 3px;padding-left: 11px;padding-right: 11px;background-color: #21211f;color: white;">
+                        {{i+1}}
+                      </p>
+                      <p>
+                        {{option.title}}
+                      </p>
+                    </ion-item>
+                    
+                   <!-- <span style="margin-left:-150px;margin-right:70px" >{{i+1}} </span><span class="AnswerOptions">{{option.title}}</span>-->
+                  </button>
+                </div>
+                <div *ngSwitchCase="0">
+                  <button ion-button block outline style="border-color:#000000; color:#000000" (click)="optionselected(i+1,option.option_id,option.is_correct)">
+                    <ion-item>
+                      <p item-start style="border: 1px solid #121211; border-radius: 60px; padding: 3px;padding-left: 11px;padding-right: 11px;background-color: #21211f;color: white;">
+                        {{i+1}}
+                      </p>
+                      <p>
+                        {{option.title}}
+                      </p>
+                    </ion-item>
+                  </button>
+                </div>
+              </div> 
+
+              
+            
+         </ion-list>
+        </ion-slide>
+      </ion-slides>
+      <ion-footer>
+        <ion-item style="border-bottom:0px">
+          <button ion-button  (click)="PreviousSlide()" style="color:aqua" item-start *ngIf="isFirst()">   <ion-icon name="rewind" ></ion-icon></button> <button ion-button   (click)="nextSlide()" style="color:aqua" item-end *ngIf="isLast()"><ion-icon name="fastforward" ></ion-icon></button>
+          <button ion-button   (click)="submit()" style="color:aqua" item-end *ngIf="!isLast()">Done</button>  
+        </ion-item>
+      </ion-footer>
+      
+</ion-content>

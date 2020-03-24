@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Test 1 Review<!--{{title}}--></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+    <ion-scroll scrollX="true" scrollY="true" style="width: 100%; height: 20%">   
+        
+            <span *ngFor="let question of questions; let i=index" style="margin-left:4%!important">
+              <button class="button button-small ReviewButtons" (click)="goToSlide(i)" [ngStyle]="getStyle(i)"> {{i+1}} </button>
+             </span>
+           
+    </ion-scroll>    
+  
+ 
+
+    <ion-slides  class="image-slider" (ionSlideDidChange)="slideChanged()" style="margin-top:50px!important;height:auto!important">
+        <ion-slide *ngFor="let question of questions; let i=index">
+            <h4 class="test-ques" style="text-align:justify!important">Question {{i + 1}}. </h4>
+            <h6  class="test-ques" style="text-align:justify!important"> {{question.title}}</h6>
+            <ion-list *ngFor="let option of question.options; let i =index">
+                <div [ngSwitch]="option.is_correct">
+                    <div *ngSwitchCase="1">
+                      <button ion-button block outline style="border-color:#0fe633; color:#27d621">
+                          <ion-item>
+                              <p item-start style="border: 1px solid #121211; border-radius: 60px; padding: 3px;padding-left: 11px;padding-right: 11px;background-color: #21211f;color: white;">
+                                {{i+1}}
+                              </p>
+                              <p>
+                                {{option.title}}
+                              </p>
+                            </ion-item>
+
+                      <!--  <span style="margin-left:-150px;margin-right:70px" >{{i+1}} </span><span class="AnswerOptions">{{option.title}}</span>-->
+                        <p style="text-align:right"><ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>Correct</p>
+                      </button>
+                    </div>
+                    <div *ngSwitchCase="0">
+                      <div [ngSwitch]="GetImage(option.option_id)">
+                          <div *ngSwitchCase="1">
+                            <button ion-button block outline style="border-color:#e54a4a; color:#e54a4a">
+                                <ion-item>
+                                    <p item-start style="border: 1px solid #121211; border-radius: 60px; padding: 3px;padding-left: 11px;padding-right: 11px;background-color: #21211f;color: white;">
+                                      {{i+1}}
+                                    </p>
+                                    <p>
+                                      {{option.title}}
+                                    </p>
+                                  </ion-item>
+                              <p style="text-align:right"><ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>Wrong</p>
+                            </button>
+                          </div>
+                          <div *ngSwitchCase="0">
+                              <button ion-button block outline style="border-color:#000000; color:#000000">
+                                  <ion-item>
+                                      <p item-start style="border: 1px solid #121211; border-radius: 60px; padding: 3px;padding-left: 11px;padding-right: 11px;background-color: #21211f;color: white;">
+                                        {{i+1}}
+                                      </p>
+                                      <p>
+                                        {{option.title}}
+                                      </p>
+                                    </ion-item>
+                                </button>
+                          </div>
+                        </div>
+                    </div>
+              </div>
+            </ion-list>
+
+            <br>
+
+                 <div [ngSwitch]="answer[i]">
+                    <div *ngSwitchCase="1">
+                        <!-- <p><b style="color:black">Status</b> : <b style="color:green">Correct</b></p>-->
+                      </div>
+                    <div *ngSwitchCase="0">
+                        <!-- <p><b style="color:black">Status</b> : <b style="color:red">Wrong</b></p>
+                           <div ng-repeat="(key,option) in question.options">
+                             <div ng-switch="option.is_correct"> 
+                               <div ng-switch-when='1'>
+                                  <p><b style="color:black">Correct Answer </b> : <b style="color:green">Option {{key+1}}</b></p>
+                                </div>
+                              </div>
+                            </div>  -->   
+                    </div>
+                  <div *ngSwitchDefault>
+                         <p><b style="color:black;margin-left:5%;font-size: 15px">Status</b> : <ion-icon ios="ios-flag" md="md-flag" style="color:#fcb640;font-size: 15px;margin-left:3%"><b style="margin-left:3%">Unattempted</b></ion-icon></p>
+                           
+                            <!--<div ng-repeat="(key,option) in question.options">
+                             <div ng-switch="option.is_correct">
+                                    <div ng-switch-when='1'>
+                                          <p><b style="color:black">Correct Answer </b> : <b style="color:green">Option {{key+1}}</p>
+                                    </b></p>
+                                   </div>
+                              </div>
+                           </div>-->
+                    </div>
+                </div>
+                <h4 style="margin-top:0px;margin-left:5%;font-weight:bold"> Solution </h4>
+              <div *ngFor="let option of question.options">
+                  <div [ngSwitch]="option.is_correct">
+                    <div *ngSwitchCase="1" [innerHTML]="option.explanation" class="ReviewExplanation">
+                    </div>
+                  </div>
+                </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-content>
+      <ion-footer>
+        <ion-item style="border-bottom:0px">
+          <button ion-button style="color:aqua" item-end *ngIf="!isLast()">Done</button>  
+        </ion-item>
+      </ion-footer>
+      
+

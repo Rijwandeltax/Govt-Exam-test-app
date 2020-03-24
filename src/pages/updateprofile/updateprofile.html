@@ -1,0 +1,93 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>updateprofile</ion-title>
+    <ion-buttons end padding >
+
+        <button ion-button clear (click)="dismiss()"><ion-icon name="close" style="color:salmon;font-size: 1.7em;" ></ion-icon></button>
+    </ion-buttons>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-bounce style="background-image:url(assets/imgs/login_bg.jpg)" >
+  <div style="text-align:center">
+    <img src="assets/imgs/black_logo.png">
+    <img src="assets/imgs/line-through.png">
+ </div>
+
+      <h3 style="text-align:center;color:#f4f4f4">Update Profile</h3> 
+        <div padding *ngFor="let delta of profile">
+          <form novalidate [formGroup]="user" (ngSubmit)="saveEntry()" scroll="false" no-bounce>
+              <ion-list>
+                
+                <ion-item style="background-color:transparent">
+                  <ion-label floating>Name</ion-label>
+                    <ion-input type="text" formControlName="name" [(ngModel)]="delta.name"></ion-input>
+                </ion-item>
+                
+                <ion-item style="background-color:transparent" no-lines *ngIf="( user.get('name').hasError('minlength') || user.get('name').hasError('required') ) && user.get('name').touched">
+                    
+                  <div class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                  Name is required
+                  </div>
+                  <div class="error" *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                  Minimum of 4 characters
+                  </div>
+                  </ion-item>
+                 
+                 
+                  <ion-item style="background-color:transparent">
+                    <ion-label floating>Email</ion-label>
+                      <ion-input type="email" formControlName="email" [(ngModel)]="delta.email" readonly></ion-input>
+                  </ion-item>
+
+                  <ion-item style="background-color:transparent" no-lines *ngIf="( user.get('email').hasError('required') || user.get('email').hasError('email') ) && user.get('email').touched">
+
+                    <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+                    email is required
+                    </div>
+                    <div class="error" *ngIf="user.get('email').hasError('email') && user.get('email').touched">
+                    Please enter valid email
+                    </div>
+                  </ion-item>
+
+
+
+                    <ion-item style="background-color:transparent">
+                      <ion-label floating>Mobile</ion-label>
+                      <ion-input type="text" formControlName="mobile" [(ngModel)]="delta.mobile"></ion-input>
+                    </ion-item>
+
+                    <ion-item style="background-color:transparent" no-lines *ngIf="( user.get('mobile').hasError('required') || user.get('mobile').hasError('mobile') ) && user.get('mobile').touched">
+
+                      <div class="error" *ngIf="user.get('mobile').hasError('required') && user.get('mobile').touched">
+                        mobile no. is required
+                      </div>
+                      <div class="error" *ngIf="user.get('mobile').hasError('minlength') && user.get('mobile').touched">
+                      Please enter valid mobile Number
+                      </div>
+                    </ion-item><br>
+            
+                      <button 
+                                ion-button block
+                                  style="background-color:#f05050" 
+                                  text-center 
+                                 [disabled]="!user.valid" 
+                                  >Update
+                      </button>
+              </ion-list>
+          </form>
+        </div>
+      
+  </ion-content>
+
+  <style type="text/css">
+    .error
+    {
+    color:red;
+    }
+    
+    </style>

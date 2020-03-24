@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="text-center space-bot-20" padding>
+    <p style="color:#2bd882;text-align:center"> Practice our questions and Track Your Daily Performance</p>
+    <p style="text-align:center"> Getting Bank/SSC Jobs is not tough anymore</p>
+    <button ion-button block   (click)="GoToPractice()" padding style="background-color:#2bd882"> Practice Now → </button>  
+  </div>
+  <ion-slides pager="true" does-continue="true" style="background-color:#2bd882;height:50%">
+    <ion-slide >
+      <h4 class="light">Solve Questions</h4>
+      <p class="light">Challenge yourself by solving our tricky questions</p>
+    </ion-slide>
+    <ion-slide >
+      <h4 class="light" >Track Performance</h4>
+          <p class="light">Analyze your performance in each section</p>
+    </ion-slide>
+    <ion-slide>
+      <h4 class="light">Daily Current Affairs</h4>
+      <p class="light">Update yourself with latest current affairs</p>
+    </ion-slide>
+  </ion-slides><br>
+
+
+  <ion-item-divider style="background-color:rgb(250, 243, 243)">
+   <p style="color:rgb(26, 23, 23)">Current Affairs</p>
+    <button ion-button item-end outline  (click)="GoToCurrent()" style="border-color:#2bd882;color:#2bd882">View All</button>
+  </ion-item-divider>
+  <div class="home-current-content">
+    <ion-slides autoplay="3000" loop="true" speed="1000">
+      <ion-slide class="padded-content-10">
+        <h6>India sets Guinness world record by cooking 918 kg khichdi</h6>
+       
+         <h6> India set Guinness world record by cooking 918 kg khichdi, a traditional multi-grain dish during three day World Mega Food India event held in New Del... </h6>
+        
+      </ion-slide>
+      <ion-slide class="padded-content-10">
+        <h6>Ajay Bisaria appointed India’s high commissioner to Pakistan</h6>
+       <h6>
+          Senior diplomat Ajay Bisaria was appointed India’s High Commissioner to Pakistan. He will succeed Gautam Bambawale, who was posted to China...
+    </h6>
+      </ion-slide>
+      <ion-slide class="padded-content-10">
+        <h6>Government to build 100 airports in 15 years</h6>
+       <h6>
+          India plans to expand connectivity and meet potential demand by establishing about 100 airports — doubling the current number...
+      </h6>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div style="padding-bottom:2%;"></div>
+  
+  
+</ion-content>

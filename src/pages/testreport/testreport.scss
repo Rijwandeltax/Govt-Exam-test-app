@@ -1,0 +1,41 @@
+page-testreport {
+    .test-report-circle{
+        background-color: dodgerblue;
+        border-radius: 60px;
+        padding: 24px;
+        text-align: center;
+        margin-left: 25px;
+    }
+    .item-md.item-block .item-inner{
+        border:0px;
+    }
+    .active-border {
+        position: relative;
+        text-align: center;
+        width: 95px;
+        height: 95px;
+        border-radius: 90%;
+        background-color: #307bbb;
+    }
+    .circle {
+        position: relative;
+        top: 5px;
+        left: 5px;
+        text-align: center;
+        width: 85px;
+        height: 85px;
+        border-radius: 90%;
+        background-color: #f5f5f5;
+    }
+    .prec {
+        top: 30px;
+        position: relative;
+        line-height: 90%;
+        font-size: 24px;
+    }
+    .container {
+        margin-top: 8%;
+        width: 110px;
+        height: 110px;
+    }
+}

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Personal Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<div text-center style="padding:40px" (click)="updateIcon()">
+  <img src="assets/imgs/icon1.png">
+</div>
+    <ion-item-divider>
+        <p>PROFILE DETAILS</p>
+      </ion-item-divider>
+  
+      <ion-item-divider>
+        <ion-icon name="person" item-start></ion-icon>
+        <p>Rijwan</p>
+      </ion-item-divider>
+      <ion-item-divider>
+        <ion-icon name="mail" item-start></ion-icon>
+        <p>rijwanmohmmed</p>
+      </ion-item-divider>
+      <ion-item-divider>
+        <ion-icon name="call" item-start></ion-icon>
+        <p>9636434242</p>
+      </ion-item-divider>
+  
+  <br><br>
+  <div style="text-align:center">
+  <button ion-button (click)="update()">Update Profile</button>
+  </div>
+
+
+
+
+
+
+    <!--<ion-item-divider>
+        <p>PROFILE DETAILS</p>
+      </ion-item-divider>
+  <div *ngFor="let delta of profile">
+      <ion-item-divider>
+        <ion-icon name="person" item-start></ion-icon>
+        <p>{{delta.name}}</p>
+      </ion-item-divider>
+      <ion-item-divider>
+        <ion-icon name="mail" item-start></ion-icon>
+        <p>{{delta.email}}</p>
+      </ion-item-divider>
+      <ion-item-divider>
+        <ion-icon name="call" item-start></ion-icon>
+        <p>{{delta.mobile}}</p>
+      </ion-item-divider>
+  </div>
+  <br><br>
+  <div style="text-align:center">
+  <button ion-button (click)="update()">Update Profile</button>
+  </div>-->
+</ion-content>

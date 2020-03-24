@@ -1,0 +1,93 @@
+<ion-header>
+
+  <ion-navbar>
+     <ion-title>{{title}} testreport</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<h4 style="border-bottom:1px solid black; margin-right:50%">SCORE</h4>
+<ion-item>
+  <h3 item-start>Marks Obtained</h3>
+  <div class="test-report-circle">
+      {{correct}}
+      <div style="border: 1px black solid;"></div>
+      {{TotalQuestions}}
+   </div> 
+</ion-item>
+<!--<div class="test-report-mark-text" style="float:left"> Marks Obtained </div> 
+   <div class="test-report-circle" style="float:right">
+      {{correct}}
+      <div style="border: 1px black solid;"></div>
+      {{TotalQuestions}}
+   </div> -->
+                    <br/> 
+                    <br/>
+                    <br/>
+       <table width="100%" style="border: 0;">
+          <tr style="border: 0;">
+           <th style="border: 0;"> <ion-icon ios="ios-checkmark" md="md-checkmark" style="color:green;font-size: 25px;"></ion-icon></th>
+           <th style="border: 0;"><ion-icon ios="ios-close" md="md-close" style="color:red;font-size: 25px;"></ion-icon></th>
+           <th style="border: 0;"> <ion-icon ios="ios-flag" md="md-flag" style="color:#fcb640;font-size: 25px;"></ion-icon></th>
+          </tr>
+          <tr style="border: 0;">
+            <td style="border: 0;"><p text-center>{{correct}}</p></td>
+            <td style="border: 0;"><p text-center>{{wrong}}</p></td>
+            <td style="border: 0;"><p text-center> {{unattemp}}</p></td>
+          </tr>
+        </table>  
+        <p class="Subject">STATS</p>
+
+
+     
+                     
+      <table width="100%" style="border: 0;">
+            <tr style="border: 0;">
+               <th style="border: 0;"><div class="test-report-text"> Percentage Secured </div> </th>
+               <th style="border: 0;"><div class="test-report-text"> Time Taken </div> </th>
+            </tr>
+             <tr style="border: 0;">
+               <td style="border: 0;">
+                   <div class="container">
+                      <div class="active-border" [style.background-image]="sty()">
+                         <div class="circle">
+                            <span class="prec 270" text-center>{{percentage}}%</span>
+                         </div>
+                      </div>
+                      </div>
+                   
+               </td>
+
+               <td style="border: 0;">
+                  <div class="container">
+                     <!--<div class="active-border" style=" background-image:linear-gradient({{Timedegree}}deg, transparent 50%, {{TimeperColor}} 50%),linear-gradient(90deg, #cccccc 50%, transparent 50%);">-->
+                      <div class="circle">
+                         <span class="prec 270" text-center>{{var_Min}}{{Minutes}}:{{var_sec}}{{Seconds}}</span>
+                      </div>
+                      <!-- </div>-->
+                 </div>
+             </td> 
+          </tr>
+    </table>  
+        
+        
+              
+      <h5 style="color:#585858;"> Note: You can verify the correct answers by clicking on review test button below.</h5>
+
+</ion-content>
+<ion-footer style="background-color:rgb(43, 190, 32);">
+  <ion-item style="background-color:transparent">
+      <button ion-button clear style="background-color:transparent;color:white;" (click)="modal_back()" item-start>
+          Go Back
+      </button>
+      <button ion-button clear style="background-color:transparent;color:white;" (click)="modal_Review()" item-end>
+          Review Test  
+      </button>
+  </ion-item>
+       
+    
+ 
+  
+   </ion-footer>

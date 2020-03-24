@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>iconupdate</ion-title>
+    <ion-buttons end padding >
+        <button ion-button clear (click)="dismiss()"><ion-icon name="close" style="color:salmon;font-size: 1.7em;" ></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <p style="font-size:20px">Change Profile Icon</p><br/><br/>
+    <span *ngFor="let delta of Icon_images;let i=index">
+        <img [src]="delta.icon" (click)="getImage(i+1)"/>&nbsp;&nbsp;
+    </span>
+</ion-content>

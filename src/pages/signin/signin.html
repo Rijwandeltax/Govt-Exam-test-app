@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+       Sign In
+     </ion-title>
+  </ion-navbar>
+</ion-header>
+  
+  <ion-content padding style="background-image:url(assets/imgs/login_bg.jpg)">
+    <div style="text-align:center">
+        <img src="assets/imgs/black_logo.png">
+        <img src="assets/imgs/line-through.png">
+  </div>
+  
+  <form novalidate (ngSubmit)="saveEntry(user)" [formGroup]="user">
+  
+  <ion-item style="background-color:transparent">
+   <ion-label floating >Email</ion-label>
+   <ion-input type="text" value="" formControlName="email" style="color:white"></ion-input>
+  </ion-item>
+  
+    <ion-item style="background-color:transparent" no-lines *ngIf="( user.get('email').hasError('required') || user.get('email').hasError('email') ) && user.get('email').touched">
+
+    <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+    email is required
+    </div>
+    
+    <div class="error" *ngIf="user.get('email').hasError('email') && user.get('email').touched">
+    Please enter valid email
+    </div>
+    
+    </ion-item>
+  
+  
+  
+  <ion-item style="background-color:transparent">
+  <ion-label floating >Password</ion-label>
+  <ion-input type="password" value="" formControlName="password" ></ion-input>
+  
+  
+  </ion-item>
+  
+  <ion-item style="background-color:transparent" no-lines *ngIf="( user.get('password').hasError('required') || user.get('password').hasError('minlength'))&& user.get('password').touched">
+
+      <div class="error" *ngIf="user.get('password').hasError('required') && user.get('email').touched">
+      Password is required
+      </div>
+      <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('email').touched">
+        Please enter more then 4 characters
+      </div>
+  </ion-item><br>
+  
+  
+  
+  
+    <button ion-button block style="background-color:#218f0bef" 
+    text-center [disabled]="user.invalid">Sign In</button>
+  </form>
+
+  <div style="text-align:center">
+      <p style="color:white">Don't have an account? <a (click)='openSign()' style="color:white;text-decoration:underline;font-size:18px">Sign Up</a><br>
+        <a (click)='openpass()' style="text-decoration:underline;font-size:18px;color:white">Forget Password</a>
+      </p>
+    </div>
+    <button ion-button block style="background-color:#f05050" text-center>Sign In Using g+</button>
+  
+  </ion-content>
+  
+  
+  <style type="text/css">
+  .error
+  {
+  color:red;
+  }
+  
+  </style>

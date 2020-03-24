@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Current Affairs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let delta of current" (click)="dailyUpdate(delta)">
+    <ion-item>
+      <h2>{{delta.cf_date}}</h2>
+      <p>Daily current affairs update</p>
+      <ion-icon ios="ios-calendar" md="md-calendar" item-end large></ion-icon>
+    </ion-item>
+  </ion-card>
+
+  
+</ion-content>

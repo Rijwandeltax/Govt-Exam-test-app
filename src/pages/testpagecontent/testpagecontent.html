@@ -1,0 +1,34 @@
+<!--
+  Generated template for the TestpagecontentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{id2}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+ <ion-card *ngFor="let d of current" padding>
+   <ion-row>
+     <ion-col col-7>
+        <h2>{{d.title}}</h2>
+        <p>{{d.numofques}} Questions</p>
+        <h2 style="font-size: 14px;" [style.color]="colors[d.level]"><ion-icon ios="ios-speedometer" md="md-speedometer" style="font-size: 14px;" [style.color]="colors[d.level]"></ion-icon>  {{levels[d.level]}} </h2>
+         
+       <!-- <div class="col col-40 padding-null align-right" ng-switch="CheckId(item.test_id)">
+             <button ng-switch-when="1" data-ng-click="test(item.test_id,item.title)" class="button  btn-prev-next light">Re-Practice</button>
+         </div>-->
+      </ion-col>
+     <ion-col col-3>
+        <button ion-button outline (click)="test(d.test_id,d.title)" style="border-color:#23c354;color:#1cd453">Practice</button>
+     </ion-col> 
+      
+   </ion-row>
+  </ion-card>
+</ion-content>

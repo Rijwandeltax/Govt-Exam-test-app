@@ -1,0 +1,72 @@
+<ion-menu type="reveal" [content]="content" id="menuId">
+  <ion-header>
+    <ion-toolbar style="padding-top:10px;padding-bottom:10px;">
+     <div *ngIf="loggedIn">
+        <div class="row">
+            <div class="col-sm-6" style="padding:0 15px 0 15px">
+                <img src="assets/imgs/icon1.png" style="border: 2px solid #ce0005;border-radius:40px;padding:5px">
+            </div>
+            <div class="col-sm-6">
+                <h5 style="margin-top:7px">User</h5>
+                <i class="ion ion-chevron-right"></i>
+            </div>
+        </div>
+      </div>
+    <div *ngIf="!loggedIn">
+      <div class="row">
+          <div class="col-sm-6" style="padding:0 15px 0 15px">
+            <img src="assets/imgs/icon1.png" style="border: 2px solid #ce0005;border-radius:40px;padding:5px">
+          </div>
+          <div class="col-sm-6">
+           <h5 style="margin-top:4px">Guest</h5>
+            <button ion-button menuClose (click)="openHelp('SigninPage')" style="height:2.8rem">Sign In</button>
+          </div>
+      </div>
+      
+        
+    
+    </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content style="margin-top:10px" class="bg">
+   <!-- <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>-->
+    <!-- new menu-->
+              <ion-list *ngIf="loggedIn">
+                
+                <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+                  <ion-icon name={{p.icon}}></ion-icon> {{p.title}}
+                </button>
+              </ion-list>
+
+              <ion-list *ngIf="!loggedIn">
+                <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+                    <ion-icon name={{p.icon}}></ion-icon> {{p.title}}
+                </button>
+              </ion-list>
+
+              <ion-list style="margin-top:-20px">
+                <button ion-item menuClose (click)="shareInfo()">
+                    <ion-icon name="share"></ion-icon> Share App
+                </button>
+                <button ion-item menuClose (click)="openHelp('HelpPage')">
+                    <ion-icon name="help"></ion-icon> Help
+                  </button>
+                </ion-list>
+              
+
+
+
+
+
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

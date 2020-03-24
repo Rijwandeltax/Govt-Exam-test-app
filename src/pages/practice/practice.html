@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Practice</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+   <ion-list>
+        <ion-card *ngFor="let d of current; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+          <ion-row>
+            <ion-col col-2>
+              <img [src]="d.cateogry_icon">
+            </ion-col>
+            <ion-col col-8>
+                <h3>{{d.category_name}}</h3>
+                <p>{{Topic[i]}} Topics</p>
+            </ion-col>
+            <ion-col col-2>
+                <ion-icon style="font-size:3.1em;color:#23c354" color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'" ></ion-icon>
+            </ion-col>
+            
+          </ion-row>
+         
+            
+            
+          
+          <div *ngIf="isGroupShown(i)">
+           <ion-item *ngFor="let p of itemms;" (click)="goTestpage(p.subject_id,p.subject_name)">
+              {{p.subject_name}}
+              <ion-icon style="font-size:2.1em;color:#23c354" name="arrow-dropright" item-end ></ion-icon>
+           </ion-item>
+          </div> 
+        
+        </ion-card>
+      </ion-list>
+</ion-content>

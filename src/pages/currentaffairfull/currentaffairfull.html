@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      {{this.pid}}
+    </ion-title>
+  </ion-navbar>
+  
+  <ion-toolbar no-border-top style="background-color:#2bd882">
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="politics" style="color:white">
+        Politics
+      </ion-segment-button>
+      <ion-segment-button value="sport" style="color:white">
+        Sports
+      </ion-segment-button>
+      <ion-segment-button value="tech" style="color:white">
+        Technology
+      </ion-segment-button>
+      <ion-segment-button value="business" style="color:white">
+        Business
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div [ngSwitch]="pet">
+      <ion-list *ngSwitchCase="'politics'">
+        <ion-item>
+          <p [innerHtml]="this.politics" text-wrap></p>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'sport'">
+        <ion-item>
+            <p [innerHtml]="this.sports" text-wrap></p>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'tech'">
+          <ion-item>
+          <p [innerHtml]="this.tech" text-wrap></p>
+          </ion-item>
+      </ion-list>
+      <ion-list *ngSwitchCase="'business'">
+          <ion-item>
+          <p [innerHtml]="this.business" text-wrap></p>
+          </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
